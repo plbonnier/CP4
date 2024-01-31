@@ -53,11 +53,12 @@ class OrangOutanController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}', name: 'app_orang_outan_show', methods: ['GET'])]
+    #[Route('/{slug}', name: 'app_orang_outan_show', methods: ['GET'])]
     public function show(OrangOutan $orangOutan): Response
     {
         return $this->render('orang_outan/show.html.twig', [
             'orang_outan' => $orangOutan,
+            'slug' => $orangOutan->getSlug(),
         ]);
     }
 

@@ -155,6 +155,12 @@ p {
     height: 15.04794rem;
     border-radius: 10.59375rem;
 }
+
+.petit-logo {
+    width: 5rem;
+    height: 4.8153rem;
+    border-radius: 10.59375rem;
+}
 // ------------button---------
 .button-cta {
     display:flex;
@@ -175,6 +181,41 @@ p {
 
     @include media-breakpoint-up(md) {
         width: 27.8125rem;
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        @include myText(
+            ($fontFamily),
+            ($fontColorTilte),
+            ($fontSizeSmallTitleDes),
+            ($fontStyleText),
+            ($fontWeightSmallTitle),
+            ($lineHeightText)
+        );
+    }
+}
+.button-crud {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    width: 8rem;
+    height: 3.1875rem;
+    border-radius: 1.5625rem;
+    background: $backgroundNavMob;
+    @include myText(
+        ($fontFamily),
+        ($fontColorTilte),
+        ($fontSizeSmallTitleMob),
+        ($fontStyleText),
+        ($fontWeightSmallTitle),
+        ($lineHeightText)
+    );
+
+    @include media-breakpoint-up(md) {
+        width: 10rem;
+        display:flex;
+        justify-content: center;
+        align-items: center;
         @include myText(
             ($fontFamily),
             ($fontColorTilte),

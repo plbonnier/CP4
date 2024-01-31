@@ -1,38 +1,28 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}OrangOutan{% endblock %}
+{% block title %}
+	{{ orang_outan.name }}
+{% endblock %}
 
 {% block body %}
-    <h1>OrangOutan</h1>
+	<div class="d-flex justify-content-evenly align-items-center">
+		<h1 class="text-center mt-2">{{ orang_outan.name }}</h1>
+		<img src="/build/images/REFUGE DES OURANG-OUTANS DE BORNEO.2dd4df03.png" alt="logo du refuge des orang-outans" class="petit-logo my-4">
+	</div>
+	<div class="d-flex flex-column align-items-center">
+		<img src="{{ asset('build/images/' ~ orang_outan.picture) }}" class="img-fluid rounded-start object-fit-cover w-75" alt="photo de {{ orang_outan.name }}"/>
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ orang_outan.id }}</td>
-            </tr>
-            <tr>
-                <th>Name</th>
-                <td>{{ orang_outan.name }}</td>
-            </tr>
-            <tr>
-                <th>Birth</th>
-                <td>{{ orang_outan.birth ? orang_outan.birth|date('Y-m-d') : '' }}</td>
-            </tr>
-            <tr>
-                <th>Story</th>
-                <td>{{ orang_outan.story }}</td>
-            </tr>
-            <tr>
-                <th>Picture</th>
-                <td>{{ orang_outan.picture }}</td>
-            </tr>
-        </tbody>
-    </table>
+		<h2 class="my-3">Son histoire</h2>
+		<p class="my-3">Date de naissance (réelle ou estimée):
+			{{ orang_outan.birth|date('d-m-Y') }}</p>
+		<p class="text-center w-75 my-3">{{ orang_outan.story }}</p>
+	</div>
+	<div class="d-flex justify-content-evenly">
+		<a type="button" href="{{ path('app_orang_outan_index') }}" class="mx-auto button-crud">back to list</a>
 
-    <a href="{{ path('app_orang_outan_index') }}">back to list</a>
+		<a type="button" href="{{ path('app_orang_outan_edit', {'id': orang_outan.id}) }}" class="mx-auto button-crud">edit</a>
 
-    <a href="{{ path('app_orang_outan_edit', {'id': orang_outan.id}) }}">edit</a>
-
-    {{ include('orang_outan/_delete_form.html.twig') }}
+	</div>
+		<a type="button" href="#" class="mx-auto button-crud">Parrainer un orang-outan</a>
+		{{ include('orang_outan/_delete_form.html.twig') }}
 {% endblock %}
