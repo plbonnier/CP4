@@ -1,19 +1,46 @@
 @import "~bootstrap/scss/bootstrap";
 // -------------------------variable----------------
-$fontSizeTitleMob: 1.66rem;
-$fontSizeSmallTitleMob: 1.33rem;
-$fontSizeTextMob: 1rem;
-$fontSizeTitleDes: 2.5rem;
-$fontSizeSmallTitleDes: 2rem;
-$fontSizeText: 1.66rem;
-$fontBold: semi-bold;
+$fontSizeTitleMob: 1.25rem;
+$fontSizeSmallTitleMob: 1rem;
+$fontSizeTextMob: .75rem;
+$fontSizeTitleDes: 1.875rem;
+$fontSizeSmallTitleDes: 1.5rem;
+$fontSizeText: 1.25rem;
+
+$fontWeightText: 400;
+$fontWeightTitleMob: 600;
+$fontWeightSmallTitleDes: 600;
+$fontWeightTitleDes: 700;
+
 $backgroundNavMob: #BCD081;
+$fontColorTilte: #3F1913;
+$fontColorText: black;
+
+$fontFamily: "Inter";
+$fontStyleText: normal;
+$lineHeightText: normal;
 
 * {
     box-sizing: border-box;
     padding: 0;
     list-style: none;
     scroll-behavior: smooth;
+}
+
+@mixin myText(
+    $fontFamily,
+    $fontColorText,
+    $fontSize,
+    $fontStyle,
+    $fontWeight,
+    $lineHeight
+) {
+    font-family: $fontFamily;
+    color: $fontColorText;
+    font-size: $fontSize;
+    font-style: $fontStyle;
+    font-weight: $fontWeight;
+    line-height: $lineHeight;
 }
 
 // -----------------------navbar---------------------
@@ -31,4 +58,34 @@ $backgroundNavMob: #BCD081;
     margin: 0;
     padding: 0;
     font-size: 3.125rem;
+}
+
+// ---------------texte-------------------
+h1 {
+    @include myText(
+        ($fontFamily),
+        ($fontColorTilte),
+        ($fontSizeTitleMob),
+        ($fontStyleText),
+        ($fontWeightTitleMob),
+        ($lineHeightText)
+    );
+}
+
+// ----------------fond-----------------
+.bg-fond {
+    background-color:rgba(255,255,255, 0.75);
+}
+
+.bg-image{
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+// -----------logo------------------
+.logo{
+    width: 15.625rem;
+    height: 15.04794rem;
+    border-radius: 10.59375rem;
 }
