@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit OrangOutan{% endblock %}
+
+{% block body %}
+    <h1>Edit OrangOutan</h1>
+
+    {{ include('orang_outan/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_orang_outan_index') }}">back to list</a>
+
+    {{ include('orang_outan/_delete_form.html.twig') }}
+{% endblock %}

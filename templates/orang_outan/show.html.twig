@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}OrangOutan{% endblock %}
+
+{% block body %}
+    <h1>OrangOutan</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ orang_outan.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ orang_outan.name }}</td>
+            </tr>
+            <tr>
+                <th>Birth</th>
+                <td>{{ orang_outan.birth ? orang_outan.birth|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Story</th>
+                <td>{{ orang_outan.story }}</td>
+            </tr>
+            <tr>
+                <th>Picture</th>
+                <td>{{ orang_outan.picture }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_orang_outan_index') }}">back to list</a>
+
+    <a href="{{ path('app_orang_outan_edit', {'id': orang_outan.id}) }}">edit</a>
+
+    {{ include('orang_outan/_delete_form.html.twig') }}
+{% endblock %}
