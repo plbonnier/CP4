@@ -1,15 +1,15 @@
 @import "~bootstrap/scss/bootstrap";
 // -------------------------variable----------------
-$fontSizeTitleMob: 1.25rem;
-$fontSizeSmallTitleMob: 1rem;
-$fontSizeTextMob: .75rem;
+$fontSizeTitleMob: 1.5rem;
+$fontSizeSmallTitleMob: 1.25rem;
+$fontSizeTextMob: 1rem;
 $fontSizeTitleDes: 1.875rem;
 $fontSizeSmallTitleDes: 1.5rem;
 $fontSizeText: 1.25rem;
 
 $fontWeightText: 400;
 $fontWeightTitleMob: 600;
-$fontWeightSmallTitleDes: 600;
+$fontWeightSmallTitle: 600;
 $fontWeightTitleDes: 700;
 
 $backgroundNavMob: #BCD081;
@@ -25,16 +25,22 @@ $lineHeightText: normal;
     padding: 0;
     list-style: none;
     scroll-behavior: smooth;
+    text-decoration: none;
 }
 
-@mixin myText(
-    $fontFamily,
+body{
+    @include media-breakpoint-down(md) {
+        padding-bottom: 25%;
+        margin-bottom: 25%;
+    }
+}
+
+@mixin myText($fontFamily,
     $fontColorText,
     $fontSize,
     $fontStyle,
     $fontWeight,
-    $lineHeight
-) {
+    $lineHeight) {
     font-family: $fontFamily;
     color: $fontColorText;
     font-size: $fontSize;
@@ -54,7 +60,9 @@ $lineHeightText: normal;
     background-color: $backgroundNavMob;
 }
 
-.bi-person, .bi-card-image, .bi-list {
+.bi-person,
+.bi-card-image,
+.bi-list {
     margin: 0;
     padding: 0;
     font-size: 3.125rem;
@@ -70,22 +78,109 @@ h1 {
         ($fontWeightTitleMob),
         ($lineHeightText)
     );
+
+    @include media-breakpoint-up(md) {
+        @include myText(
+            ($fontFamily),
+            ($fontColorTilte),
+            ($fontSizeTitleDes),
+            ($fontStyleText),
+            ($fontWeightTitleDes),
+            ($lineHeightText)
+        );
+    }
+}
+
+h2 {
+    @include myText(
+        ($fontFamily),
+        ($fontColorTilte),
+        ($fontSizeSmallTitleMob),
+        ($fontStyleText),
+        ($fontWeightSmallTitle),
+        ($lineHeightText)
+    );
+
+    @include media-breakpoint-up(md) {
+        @include myText(
+            ($fontFamily),
+            ($fontColorTilte),
+            ($fontSizeSmallTitleDes),
+            ($fontStyleText),
+            ($fontWeightSmallTitle),
+            ($lineHeightText)
+        );
+    }
+}
+
+p {
+    @include myText(
+        ($fontFamily),
+        ($fontColorText),
+        ($fontSizeTextMob),
+        ($fontStyleText),
+        ($fontWeightText),
+        ($lineHeightText)
+    );
+
+    @include media-breakpoint-up(md) {
+        @include myText(
+            ($fontFamily),
+            ($fontColorTilte),
+            ($fontSizeTextMob),
+            ($fontStyleText),
+            ($fontWeightText),
+            ($lineHeightText)
+        );
+    }
 }
 
 // ----------------fond-----------------
 .bg-fond {
-    background-color:rgba(255,255,255, 0.75);
+    background-color: rgba(255, 255, 255, 0.75);
+    background-attachment: scroll;
 }
 
-.bg-image{
+.bg-image {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    background-attachment: scroll;
 }
 
 // -----------logo------------------
-.logo{
+.logo {
     width: 15.625rem;
     height: 15.04794rem;
     border-radius: 10.59375rem;
+}
+// ------------button---------
+.button-cta {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    width: 12.6875rem;
+    height: 3.1875rem;
+    border-radius: 1.5625rem;
+    background: $backgroundNavMob;
+    @include myText(
+        ($fontFamily),
+        ($fontColorTilte),
+        ($fontSizeSmallTitleMob),
+        ($fontStyleText),
+        ($fontWeightSmallTitle),
+        ($lineHeightText)
+    );
+
+    @include media-breakpoint-up(md) {
+        width: 27.8125rem;
+        @include myText(
+            ($fontFamily),
+            ($fontColorTilte),
+            ($fontSizeSmallTitleDes),
+            ($fontStyleText),
+            ($fontWeightSmallTitle),
+            ($lineHeightText)
+        );
+    }
 }
