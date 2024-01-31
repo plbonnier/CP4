@@ -31,7 +31,6 @@ $lineHeightText: normal;
 body{
     @include media-breakpoint-down(md) {
         padding-bottom: 25%;
-        margin-bottom: 25%;
     }
 }
 
@@ -57,6 +56,11 @@ body{
 }
 
 .navbar-mobile {
+    background-color: $backgroundNavMob;
+    height: 4rem;
+    border-radius: 0.5rem;
+}
+.navbar-color {
     background-color: $backgroundNavMob;
 }
 
