@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New OrangOutan{% endblock %}
+
+{% block body %}
+    <h1>Create new OrangOutan</h1>
+
+    {{ include('orang_outan/_form.html.twig') }}
+
+    <a href="{{ path('app_orang_outan_index') }}">back to list</a>
+{% endblock %}

@@ -21,28 +21,24 @@ class OrangOutanRepository extends ServiceEntityRepository
         parent::__construct($registry, OrangOutan::class);
     }
 
-//    /**
-//     * @return OrangOutan[] Returns an array of OrangOutan objects
-//     */
-//    public function findByExampleField($value): array
-//    {
-//        return $this->createQueryBuilder('o')
-//            ->andWhere('o.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->orderBy('o.id', 'ASC')
-//            ->setMaxResults(10)
-//            ->getQuery()
-//            ->getResult()
-//        ;
-//    }
+    //    /**
+    //     * @return OrangOutan[] Returns an array of OrangOutan objects
+    //     */
+    // public function paginationQuery()
+    // {
+    //     return $this->createQueryBuilder('o')
+    //         ->orderBy('o.id', 'ASC')
+    //         ->getQuery();
 
-//    public function findOneBySomeField($value): ?OrangOutan
-//    {
-//        return $this->createQueryBuilder('o')
-//            ->andWhere('o.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->getQuery()
-//            ->getOneOrNullResult()
-//        ;
-//    }
+    // }
+
+    //    public function findOneBySomeField($value): ?OrangOutan
+    //    {
+    //        return $this->createQueryBuilder('o')
+    //            ->andWhere('o.exampleField = :val')
+    //            ->setParameter('val', $value)
+    //            ->getQuery()
+    //            ->getOneOrNullResult()
+    //        ;
+    //    }
 }

@@ -7,7 +7,7 @@
 			</a>
 		</li>
 		<li class="nav-item">
-			<a class="nav-link" href="#"><img src="build\images\visage1.090dd722.png" class="pic-navbar" alt="tête d'ourangoutan">
+			<a class="nav-link" href="{{ path('app_orang_outan_index') }}"><img src="build\images\visage1.090dd722.png" class="pic-navbar" alt="tête d'ourangoutan">
 			</a>
 		</li>
 		<li class="nav-item">
@@ -23,7 +23,7 @@
 		<i class="bi bi-list"></i>
 	</button>
 
-	<div class="offcanvas offcanvas-start navbar-mobile" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
+	<div class="offcanvas offcanvas-start navbar-color" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
 		<div class="offcanvas-header">
 			<h5 class="offcanvas-title" id="offcanvasScrollingLabel"></h5>
 			<button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -31,10 +31,13 @@
 		<div class="offcanvas-body">
 			<ul class="d-flex flex-column align-items-center justify-content-around p-0 h-25">
 				<li class="nav-item">
+					<a class="nav-link active" aria-current="page" href="{{ path('app_home') }}">Accueil</a>
+				</li>
+				<li class="nav-item">
 					<a class="nav-link active" aria-current="page" href="#">Se connecter</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="#">Tous nos ourang-outans
+					<a class="nav-link" href="{{ path('app_orang_outan_index') }}">Tous nos ourang-outans
 						<img src="build\images\visage1.090dd722.png" class="pic-navbar"></a>
 				</li>
 				<li class="nav-item">
