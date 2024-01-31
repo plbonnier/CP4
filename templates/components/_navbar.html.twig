@@ -1,24 +1,25 @@
 {# ----------------------------mobile----------------------- #}
-<ul class="navbar-mobile navbar fixed-bottom justify-content-around d-md-none">
-	<li class="nav-item">
-		<a class="nav-link active" aria-current="page" href="#">
-			<i class="bi bi-person"></i>
-		</a>
-	</li>
-	<li class="nav-item">
-		<a class="nav-link" href="#"><img src="build\images\visage1.090dd722.png" class="pic-navbar">
-		</a>
-	</li>
-	<li class="nav-item">
-		<a class="nav-link" href="#">
-			<i class="bi bi-card-image"></i>
-		</a>
-	</li>
-</ul>
-
+<nav>
+	<ul class="navbar-mobile navbar fixed-bottom justify-content-around align-content-center d-md-none m-0">
+		<li class="nav-item">
+			<a class="nav-link active" aria-current="page" href="#">
+				<i class="bi bi-person"></i>
+			</a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link" href="#"><img src="build\images\visage1.090dd722.png" class="pic-navbar" alt="tête d'ourangoutan">
+			</a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link" href="#">
+				<i class="bi bi-card-image"></i>
+			</a>
+		</li>
+	</ul>
+</nav>
 {# ------------------desktop------------------ #}
-<div class="d-none d-md-block">
-	<button class="btn navbar-mobile" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">
+<nav class="d-none d-md-block position-absolute">
+	<button class="btn navbar-color" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">
 		<i class="bi bi-list"></i>
 	</button>
 
@@ -60,4 +61,4 @@
 			</ul>
 		</div>
 	</div>
-</div>
+</nav>
