@@ -1,0 +1,63 @@
+{# ----------------------------mobile----------------------- #}
+<ul class="navbar-mobile navbar fixed-bottom justify-content-around d-md-none">
+	<li class="nav-item">
+		<a class="nav-link active" aria-current="page" href="#">
+			<i class="bi bi-person"></i>
+		</a>
+	</li>
+	<li class="nav-item">
+		<a class="nav-link" href="#"><img src="build\images\visage1.090dd722.png" class="pic-navbar">
+		</a>
+	</li>
+	<li class="nav-item">
+		<a class="nav-link" href="#">
+			<i class="bi bi-card-image"></i>
+		</a>
+	</li>
+</ul>
+
+{# ------------------desktop------------------ #}
+<div class="d-none d-md-block">
+	<button class="btn navbar-mobile" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">
+		<i class="bi bi-list"></i>
+	</button>
+
+	<div class="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
+		<div class="offcanvas-header">
+			<h5 class="offcanvas-title" id="offcanvasScrollingLabel"></h5>
+			<button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+		</div>
+		<div class="offcanvas-body">
+			<ul class="d-flex flex-column align-items-center justify-content-around p-0 h-25">
+				<li class="nav-item">
+					<a class="nav-link active" aria-current="page" href="#">Se connecter</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#">Tous nos ourang-outans
+						<img src="build\images\visage1.090dd722.png" class="pic-navbar"></a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#">Les photos du refuges</a>
+				</li>
+				<li class="nav-item">
+					<div class="dropdown">
+						<button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+							Nos pensionnaires
+						</button>
+						<ul class="dropdown-menu">
+							<li>
+								<a class="dropdown-item" href="#">Action</a>
+							</li>
+							<li>
+								<a class="dropdown-item" href="#">Another action</a>
+							</li>
+							<li>
+								<a class="dropdown-item" href="#">Something else here</a>
+							</li>
+						</ul>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>
