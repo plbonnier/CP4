@@ -6,6 +6,7 @@ use App\Entity\OrangOutan;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Vich\UploaderBundle\Form\Type\VichFileType;
 
 class OrangOutanType extends AbstractType
 {
@@ -15,7 +16,11 @@ class OrangOutanType extends AbstractType
             ->add('name')
             ->add('birth')
             ->add('story')
-            ->add('picture')
+            ->add('pictureFile', VichFileType::class, [
+                'required'      => false,
+                'allow_delete'  => true, // not mandatory, default is true
+                'download_uri' => true, // not mandatory, default is true
+        ])
         ;
     }
 
