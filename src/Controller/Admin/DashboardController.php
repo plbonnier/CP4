@@ -11,6 +11,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Router\AdminUrlGenerator;
 use Symfony\Component\Security\Http\Attribute\IsGranted;
 use App\Entity\User;
 use App\Entity\OrangOutan;
+use App\Entity\Adopt;
 
 class DashboardController extends AbstractDashboardController
 {
@@ -32,7 +33,7 @@ class DashboardController extends AbstractDashboardController
     {
         yield MenuItem::linkToCrud('OrangOutan', 'fas fa-orangoutan', OrangOutan::class);
         yield MenuItem::linkToCrud('Users', 'fas fa-users', User::class);
-        yield MenuItem::linkToCrud('Adopt', 'fas fa-adopt', User::class);
+        yield MenuItem::linkToCrud('Adopt', 'fas fa-adopt', Adopt::class);
         yield MenuItem::linkToRoute('Return to the site', 'fa fa-circle-left', 'app_home');
     }
 }
