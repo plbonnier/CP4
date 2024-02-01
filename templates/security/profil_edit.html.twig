@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Home
+{% endblock %}
+
+{% block body %}
+	<div class="vh-100">
+		<h1 class="text-center">Modifier mon Profil</h1>
+
+		{{ include('security/_form.html.twig', {'button_label': 'Update'}) }}
+		<div class="d-flex justify-content-center">
+			<a type="button" class="button-crud mt-3" href="{{ path('app_profile') }}">back to list</a>
+		</div>
+	</div>
+{% endblock %}
