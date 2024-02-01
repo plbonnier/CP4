@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nouveau parrainage
+{% endblock %}
+
+{% block body %}
+	<div class="vh-100">
+		<h1 class="text-center">Qui souhaitez-vous parrainer?</h1>
+		{{ include('adopt/_form.html.twig') }}
+		<div class="d-flex justify-content-center">
+			<a class="button-cta mt-4" href="{{ path('app_profile') }}">retour à votre profil</a>
+		</div>
+	</div>
+{% endblock %}

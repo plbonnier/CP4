@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
@@ -68,6 +70,15 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     #[ORM\Column(type: Types::DATE_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $updatedAt = null;
+    #[ORM\ManyToMany(targetEntity: OrangOutan::class, inversedBy: 'adoptParents')]
+    private Collection $adopt;
+    #[ORM\OneToMany(mappedBy: 'user', targetEntity: Adopt::class, orphanRemoval: true)]
+    private Collection $adopts;
+    public function __construct()
+    {
+        $this->adopt = new ArrayCollection();
+        $this->adopts = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -259,5 +270,36 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function getPictureFile(): ?File
     {
         return $this->pictureFile;
+    }
+
+    /**
+     * @return Collection<int, OrangOutan>
+     */
+    public function getAdopt(): Collection
+    {
+        return $this->adopt;
+    }
+
+    public function addAdopt(OrangOutan $adopt): static
+    {
+        if (!$this->adopt->contains($adopt)) {
+            $this->adopt->add($adopt);
+        }
+
+        return $this;
+    }
+
+    public function removeAdopt(OrangOutan $adopt): static
+    {
+        $this->adopt->removeElement($adopt);
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Adopt>
+     */
+    public function getAdopts(): Collection
+    {
+        return $this->adopts;
     }
 }

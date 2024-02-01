@@ -30,8 +30,9 @@ class DashboardController extends AbstractDashboardController
 
     public function configureMenuItems(): iterable
     {
-        yield MenuItem::linkToCrud('Comment', 'fas fa-comment', OrangOutan::class);
+        yield MenuItem::linkToCrud('OrangOutan', 'fas fa-orangoutan', OrangOutan::class);
         yield MenuItem::linkToCrud('Users', 'fas fa-users', User::class);
+        yield MenuItem::linkToCrud('Adopt', 'fas fa-adopt', User::class);
         yield MenuItem::linkToRoute('Return to the site', 'fa fa-circle-left', 'app_home');
     }
 }

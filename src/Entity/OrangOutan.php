@@ -45,6 +45,15 @@ class OrangOutan
 
     #[ORM\Column(type: Types::DATE_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $updatedAt = null;
+    #[ORM\ManyToMany(targetEntity: User::class, mappedBy: 'adopt')]
+    private Collection $adoptParents;
+    #[ORM\OneToMany(mappedBy: 'orangoutan', targetEntity: Adopt::class, orphanRemoval: true)]
+    private Collection $adopts;
+    public function __construct()
+    {
+        $this->adoptParents = new ArrayCollection();
+        $this->adopts = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -131,6 +140,63 @@ class OrangOutan
     public function setUpdatedAt(\DateTimeInterface $updatedAt): static
     {
         $this->updatedAt = $updatedAt;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, User>
+     */
+    public function getAdoptParents(): Collection
+    {
+        return $this->adoptParents;
+    }
+
+    public function addAdoptParent(User $adoptParent): static
+    {
+        if (!$this->adoptParents->contains($adoptParent)) {
+            $this->adoptParents->add($adoptParent);
+            $adoptParent->addAdopt($this);
+        }
+
+        return $this;
+    }
+
+    public function removeAdoptParent(User $adoptParent): static
+    {
+        if ($this->adoptParents->removeElement($adoptParent)) {
+            $adoptParent->removeAdopt($this);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Adopt>
+     */
+    public function getAdopts(): Collection
+    {
+        return $this->adopts;
+    }
+
+    public function addAdopt(Adopt $adopt): static
+    {
+        if (!$this->adopts->contains($adopt)) {
+            $this->adopts->add($adopt);
+            $adopt->setOrangoutan($this);
+        }
+
+        return $this;
+    }
+
+    public function removeAdopt(Adopt $adopt): static
+    {
+        if ($this->adopts->removeElement($adopt)) {
+// set the owning side to null (unless already changed)
+            if ($adopt->getOrangoutan() === $this) {
+                $adopt->setOrangoutan(null);
+            }
+        }
 
         return $this;
     }
