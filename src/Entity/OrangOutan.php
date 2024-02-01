@@ -45,6 +45,12 @@ class OrangOutan
 
     #[ORM\Column(type: Types::DATE_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $updatedAt = null;
+    #[ORM\ManyToMany(targetEntity: User::class, mappedBy: 'adopt')]
+    private Collection $adoptParents;
+    public function __construct()
+    {
+        $this->adoptParents = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -131,6 +137,33 @@ class OrangOutan
     public function setUpdatedAt(\DateTimeInterface $updatedAt): static
     {
         $this->updatedAt = $updatedAt;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, User>
+     */
+    public function getAdoptParents(): Collection
+    {
+        return $this->adoptParents;
+    }
+
+    public function addAdoptParent(User $adoptParent): static
+    {
+        if (!$this->adoptParents->contains($adoptParent)) {
+            $this->adoptParents->add($adoptParent);
+            $adoptParent->addAdopt($this);
+        }
+
+        return $this;
+    }
+
+    public function removeAdoptParent(User $adoptParent): static
+    {
+        if ($this->adoptParents->removeElement($adoptParent)) {
+            $adoptParent->removeAdopt($this);
+        }
 
         return $this;
     }
