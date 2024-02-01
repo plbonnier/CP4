@@ -5,19 +5,23 @@
 {% endblock %}
 
 {% block body %}
-	<h1 class="my-5 text-center">Découvrez tous nos orang-outans</h1>
 
+	<div class="d-flex justify-content-evenly align-items-center">
+		<h1 class="text-center my-5">Découvrez tous nos orang-outans</h1>
+		<img src="/build/images/REFUGE DES OURANG-OUTANS DE BORNEO.2dd4df03.png" alt="logo du refuge des orang-outans" class="petit-logo my-4">
+	</div>
 	{% for orang_outan in pagination %}
 		<div class="d-flex justify-content-center">
-			<div class="card mb-5 w-75"  lazy="loading">
+			<div class="card mb-5 w-75" lazy="loading">
 				<div class="row g-0">
 					<div class="col-md-4">
-					<img src="{{ vich_uploader_asset(orang_outan) }}" class="img-fluid rounded-start object-fit-cover w-75" alt="photo de {{ orang_outan.name }}"/>
+						<img src="{{ vich_uploader_asset(orang_outan) }}" class="img-fluid rounded-start object-fit-cover w-75" alt="photo de {{ orang_outan.name }}"/>
 					</div>
 					<div class="col-md-8">
 						<div class="card-body">
 							<h5 class="card-title">{{ orang_outan.name }}</h5>
-							<p class="card-text">Date de naissance (réelle ou estimée): {{ orang_outan.birth|date('d-m-Y') }}</p>
+							<p class="card-text">Date de naissance (réelle ou estimée):
+								{{ orang_outan.birth|date('d-m-Y') }}</p>
 							<p class="card-text text-truncate">
 								{{ orang_outan.story }}
 							</p>

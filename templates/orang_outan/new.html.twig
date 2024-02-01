@@ -1,9 +1,12 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New OrangOutan{% endblock %}
+{% block title %}Nouveau pensionnaire{% endblock %}
 
 {% block body %}
-    <h1>Create new OrangOutan</h1>
+	<div class="d-flex justify-content-evenly align-items-center">
+		<h1 class="text-center my-5">Inscrire un nouveau pensionnaire</h1>
+		<img src="/build/images/REFUGE DES OURANG-OUTANS DE BORNEO.2dd4df03.png" alt="logo du refuge des orang-outans" class="petit-logo my-4">
+	</div>
 
     {{ include('orang_outan/_form.html.twig') }}
 

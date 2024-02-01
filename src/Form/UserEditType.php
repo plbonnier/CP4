@@ -41,6 +41,7 @@ class UserEditType extends AbstractType
             ->add('pictureFile', VichFileType::class, [
                 'required'      => false,
                 'allow_delete'  => true,
+                'download_uri' => false,
             ])
         ;
     }

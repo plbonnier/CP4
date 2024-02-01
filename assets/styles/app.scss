@@ -196,6 +196,38 @@ p, .para {
         );
     }
 }
+.button-cta2 {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    width: 14rem;
+    height: 4.5rem;
+    border-radius: 1.5625rem;
+    background: $backgroundNavMob;
+    @include myText(
+        ($fontFamily),
+        ($fontColorTilte),
+        ($fontSizeSmallTitleMob),
+        ($fontStyleText),
+        ($fontWeightSmallTitle),
+        ($lineHeightText)
+    );
+
+    @include media-breakpoint-up(md) {
+        width: 27.8125rem;
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        @include myText(
+            ($fontFamily),
+            ($fontColorTilte),
+            ($fontSizeSmallTitleDes),
+            ($fontStyleText),
+            ($fontWeightSmallTitle),
+            ($lineHeightText)
+        );
+    }
+}
 .button-crud {
     display:flex;
     justify-content: center;
