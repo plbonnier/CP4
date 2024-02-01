@@ -83,6 +83,7 @@ class OrangOutanController extends AbstractController
     #[Route('/{id}', name: 'app_orang_outan_delete', methods: ['POST'])]
     public function delete(Request $request, OrangOutan $orangOutan, EntityManagerInterface $entityManager): Response
     {
+
         if ($this->isCsrfTokenValid('delete' . $orangOutan->getId(), $request->request->get('_token'))) {
             $entityManager->remove($orangOutan);
             $entityManager->flush();
