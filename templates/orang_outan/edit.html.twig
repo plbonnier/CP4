@@ -10,7 +10,9 @@
 
     {{ include('orang_outan/_form.html.twig', {'button_label': 'Update'}) }}
 
-    <a class="button-cta" href="{{ path('app_orang_outan_index') }}">retour à la liste</a>
+	<div class="d-flex justify-content-center mt-3">
+		<a type="button" class="button-cta2 mt-3" href="{{ path('app_orang_outan_index') }}">retour à la liste de nos pensionnaires</a>
+	</div>
 
     {{ include('orang_outan/_delete_form.html.twig') }}
 {% endblock %}

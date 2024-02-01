@@ -1,6 +1,7 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Nouveau pensionnaire{% endblock %}
+{% block title %}Nouveau pensionnaire
+{% endblock %}
 
 {% block body %}
 	<div class="d-flex justify-content-evenly align-items-center">
@@ -8,7 +9,9 @@
 		<img src="/build/images/REFUGE DES OURANG-OUTANS DE BORNEO.2dd4df03.png" alt="logo du refuge des orang-outans" class="petit-logo my-4">
 	</div>
 
-    {{ include('orang_outan/_form.html.twig') }}
+	{{ include('orang_outan/_form.html.twig') }}
 
-    <a href="{{ path('app_orang_outan_index') }}">back to list</a>
+	<div class="d-flex justify-content-center mt-3">
+		<a type="button" class="button-cta2 mt-3" href="{{ path('app_orang_outan_index') }}">retour à la liste de nos pensionnaires</a>
+	</div>
 {% endblock %}
