@@ -72,7 +72,7 @@ class SecurityController extends AbstractController
         ]);
     }
 
-    #[Route('/mon_profil/delete', name: 'app_profile_delete')]
+    #[Route('/mon_profil/delete/{id}', name: 'app_profile_delete')]
     public function deleteProfile(Request $request, User $user, EntityManagerInterface $entityManager): Response
     {
         if ($this->isCsrfTokenValid('delete' . $user->getId(), $request->request->get('_token'))) {
@@ -80,7 +80,6 @@ class SecurityController extends AbstractController
             $entityManager->flush();
             $this->addFlash('danger', 'Votre compte a été supprimé');
         }
-
-        return $this->redirectToRoute('app_logout', [], Response::HTTP_SEE_OTHER);
+        return $this->redirectToRoute('app_home', [], Response::HTTP_SEE_OTHER);
     }
 }
