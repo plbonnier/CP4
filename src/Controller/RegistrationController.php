@@ -10,7 +10,6 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Contracts\Translation\TranslatorInterface;
 
 class RegistrationController extends AbstractController
 {
@@ -43,15 +42,6 @@ class RegistrationController extends AbstractController
 
         return $this->render('registration/register.html.twig', [
             'registrationForm' => $form->createView(),
-        ]);
-    }
-
-    #[Route('/mon_profil', name: 'app_profile')]
-    public function profile(): Response
-    {
-        $user = $this->getUser();
-        return $this->render('security/mon_profil.html.twig', [
-            'user' => $user,
         ]);
     }
 }
