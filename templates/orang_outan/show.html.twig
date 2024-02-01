@@ -17,11 +17,15 @@
 		<p class="text-center w-75 my-3">{{ orang_outan.story }}</p>
 	</div>
 	<div class="d-flex justify-content-evenly">
-		<a type="button" href="{{ path('app_orang_outan_index') }}" class="mx-auto button-crud">back to list</a>
+		<a type="button" href="{{ path('app_orang_outan_index') }}" class="mx-auto button-cta">retour à la liste des pensionnaires</a>
 
-		<a type="button" href="{{ path('app_orang_outan_edit', {'id': orang_outan.id}) }}" class="mx-auto button-crud">edit</a>
+		<a type="button" href="{{ path('app_adopt_new') }}" class="mx-auto button-cta">Parrainer un orang-outan</a>
 
+		{% if is_granted('ROLE_ADMIN') %}
+			<a type="button" href="{{ path('app_orang_outan_edit', {'id': orang_outan.id}) }}" class="mx-auto button-crud">edit</a>
+		{% endif %}
 	</div>
-		<a type="button" href="#" class="mx-auto button-cta">Parrainer un orang-outan</a>
+	{% if is_granted('ROLE_ADMIN') %}
 		{{ include('orang_outan/_delete_form.html.twig') }}
+	{% endif %}
 {% endblock %}

@@ -22,7 +22,7 @@ class OrangOutanController extends AbstractController
         PaginatorInterface $paginator
     ): Response {
         $orangOutan = $orangOutanRepository->findAll();
-        $pagination = $paginator ->paginate(
+        $pagination = $paginator->paginate(
             $orangOutan,
             $request->query->getInt('page', 1),
             5
@@ -36,21 +36,25 @@ class OrangOutanController extends AbstractController
     #[Route('/new', name: 'app_orang_outan_new', methods: ['GET', 'POST'])]
     public function new(Request $request, EntityManagerInterface $entityManager): Response
     {
-        $orangOutan = new OrangOutan();
-        $form = $this->createForm(OrangOutanType::class, $orangOutan);
-        $form->handleRequest($request);
+        if ($this->getUser() == $this->isGranted('ROLE_ADMIN')) {
+            $orangOutan = new OrangOutan();
+            $form = $this->createForm(OrangOutanType::class, $orangOutan);
+            $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager->persist($orangOutan);
-            $entityManager->flush();
+            if ($form->isSubmitted() && $form->isValid()) {
+                $entityManager->persist($orangOutan);
+                $entityManager->flush();
 
+                return $this->redirectToRoute('app_orang_outan_index', [], Response::HTTP_SEE_OTHER);
+            }
+
+            return $this->render('orang_outan/new.html.twig', [
+                'orang_outan' => $orangOutan,
+                'form' => $form,
+            ]);
+        } else {
             return $this->redirectToRoute('app_orang_outan_index', [], Response::HTTP_SEE_OTHER);
         }
-
-        return $this->render('orang_outan/new.html.twig', [
-            'orang_outan' => $orangOutan,
-            'form' => $form,
-        ]);
     }
 
     #[Route('/{slug}', name: 'app_orang_outan_show', methods: ['GET'])]
@@ -62,33 +66,41 @@ class OrangOutanController extends AbstractController
         ]);
     }
 
+
     #[Route('/{id}/edit', name: 'app_orang_outan_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, OrangOutan $orangOutan, EntityManagerInterface $entityManager): Response
     {
-        $form = $this->createForm(OrangOutanType::class, $orangOutan);
-        $form->handleRequest($request);
+        if ($this->getUser() == $this->isGranted('ROLE_ADMIN')) {
+            $form = $this->createForm(OrangOutanType::class, $orangOutan);
+            $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager->flush();
+            if ($form->isSubmitted() && $form->isValid()) {
+                $entityManager->flush();
 
+                return $this->redirectToRoute('app_orang_outan_index', [], Response::HTTP_SEE_OTHER);
+            }
+
+            return $this->render('orang_outan/edit.html.twig', [
+                'orang_outan' => $orangOutan,
+                'form' => $form,
+            ]);
+        } else {
             return $this->redirectToRoute('app_orang_outan_index', [], Response::HTTP_SEE_OTHER);
         }
-
-        return $this->render('orang_outan/edit.html.twig', [
-            'orang_outan' => $orangOutan,
-            'form' => $form,
-        ]);
     }
 
     #[Route('/{id}', name: 'app_orang_outan_delete', methods: ['POST'])]
     public function delete(Request $request, OrangOutan $orangOutan, EntityManagerInterface $entityManager): Response
     {
+        if ($this->getUser() == $this->isGranted('ROLE_ADMIN')) {
+            if ($this->isCsrfTokenValid('delete' . $orangOutan->getId(), $request->request->get('_token'))) {
+                $entityManager->remove($orangOutan);
+                $entityManager->flush();
+            }
 
-        if ($this->isCsrfTokenValid('delete' . $orangOutan->getId(), $request->request->get('_token'))) {
-            $entityManager->remove($orangOutan);
-            $entityManager->flush();
+            return $this->redirectToRoute('app_orang_outan_index', [], Response::HTTP_SEE_OTHER);
+        } else {
+            return $this->redirectToRoute('app_orang_outan_index', [], Response::HTTP_SEE_OTHER);
         }
-
-        return $this->redirectToRoute('app_orang_outan_index', [], Response::HTTP_SEE_OTHER);
     }
 }
