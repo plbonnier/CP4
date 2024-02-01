@@ -262,4 +262,8 @@ p, .para {
     border-width: 1px;
 }
 
-// ----------------------------register--------------------
+// ----------------------------form--------------------
+label.required:before {
+    content: "*";
+    color: $red;
+}

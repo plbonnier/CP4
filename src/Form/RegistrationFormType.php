@@ -24,18 +24,23 @@ class RegistrationFormType extends AbstractType
             ])
             ->add('firstname', TextType::class, [
             'label' => 'Prénom',
+            'required' => false,
             ])
             ->add('adress', TextType::class, [
             'label' => 'Adresse',
+            'required' => false,
             ])
             ->add('zipcode', TextType::class, [
             'label' => 'Code Postal',
+            'required' => false,
             ])
             ->add('city', TextType::class, [
             'label' => 'Ville',
+            'required' => false,
             ])
             ->add('country', TextType::class, [
             'label' => 'Pays',
+            'required' => false,
             ])
             ->add('pictureFile', VichFileType::class, [
                 'required'      => false,
