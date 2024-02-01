@@ -5,7 +5,7 @@
 {% endblock %}
 
 {% block body %}
-	<h1 class="my-5 text-center">Découvrez nos tous nos orang-outans</h1>
+	<h1 class="my-5 text-center">Découvrez tous nos orang-outans</h1>
 
 	{% for orang_outan in pagination %}
 		<div class="d-flex justify-content-center">
@@ -17,7 +17,7 @@
 					<div class="col-md-8">
 						<div class="card-body">
 							<h5 class="card-title">{{ orang_outan.name }}</h5>
-							<p class="card-text">{{ orang_outan.birth|date('d-m-Y') }}</p>
+							<p class="card-text">Date de naissance (réelle ou estimée): {{ orang_outan.birth|date('d-m-Y') }}</p>
 							<p class="card-text text-truncate">
 								{{ orang_outan.story }}
 							</p>
