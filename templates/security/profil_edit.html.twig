@@ -1,15 +1,18 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Home
+{% block title %}Edition de profil
 {% endblock %}
 
 {% block body %}
 	<div class="vh-100">
-		<h1 class="text-center">Modifier mon Profil</h1>
+		<div class="d-flex justify-content-evenly align-items-center">
+			<h1 class="text-center my-5">Modifier mon profil</h1>
+			<img src="/build/images/REFUGE DES OURANG-OUTANS DE BORNEO.2dd4df03.png" alt="logo du refuge des orang-outans" class="petit-logo my-4">
+		</div>
 
 		{{ include('security/_form.html.twig', {'button_label': 'Update'}) }}
-		<div class="d-flex justify-content-center">
-			<a type="button" class="button-crud mt-3" href="{{ path('app_profile') }}">back to list</a>
+		<div class="d-flex justify-content-center mt-3">
+			<a type="button" class="button-cta mt-3" href="{{ path('app_profile') }}">retour à mon profil</a>
 		</div>
 	</div>
 {% endblock %}

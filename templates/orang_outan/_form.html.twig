@@ -1,4 +1,11 @@
 {{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
+	<div class="d-flex justify-content-evenly mt-4">{{ form_row(form.name) }}</div>
+	<div class="d-flex justify-content-evenly mt-4">{{ form_row(form.birth) }}</div>
+	<div class="d-flex justify-content-evenly mt-4">{{ form_row(form.story) }}</div>
+	<div class="d-flex justify-content-evenly mt-4">{{ form_row(form.pictureFile) }}</div>
+
+
+	<div class="d-flex justify-content-center  mt-4">
+		<button class="btn button-cta2">{{ button_label|default('Enregistrer un nouveau pensionnaire') }}</button>
+	</div>
 {{ form_end(form) }}
