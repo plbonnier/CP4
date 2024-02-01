@@ -20,6 +20,14 @@ class Adopt
     #[ORM\Column(type: Types::DATE_MUTABLE)]
     private ?\DateTimeInterface $date = null;
 
+    #[ORM\ManyToOne(inversedBy: 'adopts', cascade:['persist'])]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?User $user = null;
+
+    #[ORM\ManyToOne(inversedBy: 'adopts')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?OrangOutan $orangoutan = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -45,6 +53,30 @@ class Adopt
     public function setDate(\DateTimeInterface $date): static
     {
         $this->date = $date;
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): static
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    public function getOrangoutan(): ?OrangOutan
+    {
+        return $this->orangoutan;
+    }
+
+    public function setOrangoutan(?OrangOutan $orangoutan): static
+    {
+        $this->orangoutan = $orangoutan;
 
         return $this;
     }

@@ -1,0 +1,10 @@
+{{ form_start(form) }}
+
+<div class="d-flex justify-content-center mt-4">{{ form_row(form.money) }}€</div>
+<div class="d-flex justify-content-center mt-4">{{ form_row(form.orangoutan) }}</div>
+
+<div class="d-flex justify-content-center mt-4">
+	<button class="btn button-cta">{{ button_label|default('Enregistrez votre parrainage') }}</button>
+</div>
+{{ form_end(form) }}
+

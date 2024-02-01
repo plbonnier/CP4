@@ -72,9 +72,12 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private ?\DateTimeInterface $updatedAt = null;
     #[ORM\ManyToMany(targetEntity: OrangOutan::class, inversedBy: 'adoptParents')]
     private Collection $adopt;
+    #[ORM\OneToMany(mappedBy: 'user', targetEntity: Adopt::class, orphanRemoval: true)]
+    private Collection $adopts;
     public function __construct()
     {
         $this->adopt = new ArrayCollection();
+        $this->adopts = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -290,5 +293,13 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     {
         $this->adopt->removeElement($adopt);
         return $this;
+    }
+
+    /**
+     * @return Collection<int, Adopt>
+     */
+    public function getAdopts(): Collection
+    {
+        return $this->adopts;
     }
 }
