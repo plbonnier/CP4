@@ -10,3 +10,11 @@ import './styles/app.scss';
 
 // start the Stimulus application
 import './bootstrap';
+
+// ---------------message flash durationtime--------------
+setTimeout(function() {
+    const flashMessage = document.querySelector('div.alert');
+    if (flashMessage) {
+        flashMessage.remove();
+    }
+}, 3000);
