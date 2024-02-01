@@ -39,41 +39,12 @@ class AdoptController extends AbstractController
             $entityManager->persist($adopt);
             $entityManager->flush();
 
-            return $this->redirectToRoute('app_adopt_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('app_profile', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->render('adopt/new.html.twig', [
             'adopt' => $adopt,
             'form' => $form,
         ]);
-    }
-
-    #[Route('/{id}/edit', name: 'app_adopt_edit', methods: ['GET', 'POST'])]
-    public function edit(Request $request, Adopt $adopt, EntityManagerInterface $entityManager): Response
-    {
-        $form = $this->createForm(AdoptType::class, $adopt);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager->flush();
-
-            return $this->redirectToRoute('app_profile', [], Response::HTTP_SEE_OTHER);
-        }
-
-        return $this->render('adopt/edit.html.twig', [
-            'adopt' => $adopt,
-            'form' => $form,
-        ]);
-    }
-
-    #[Route('/{id}', name: 'app_adopt_delete', methods: ['POST'])]
-    public function delete(Request $request, Adopt $adopt, EntityManagerInterface $entityManager): Response
-    {
-        if ($this->isCsrfTokenValid('delete' . $adopt->getId(), $request->request->get('_token'))) {
-            $entityManager->remove($adopt);
-            $entityManager->flush();
-        }
-
-        return $this->redirectToRoute('app_adopt_index', [], Response::HTTP_SEE_OTHER);
     }
 }
