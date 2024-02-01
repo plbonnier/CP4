@@ -1,11 +1,24 @@
 {# ----------------------------mobile----------------------- #}
 <nav>
 	<ul class="navbar-mobile navbar fixed-bottom justify-content-around align-content-center d-md-none m-0">
+		{% if app.user %}
 		<li class="nav-item">
-			<a class="nav-link active" aria-current="page" href="#">
+			<a class="nav-link active" aria-current="page" href="app_login">
+				<i class="bi bi-person-check"></i>
+			</a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link active"  href="app_login">
+				<i class="bi bi-power"></i>
+			</a>
+		</li>
+		{% else %}
+		<li class="nav-item">
+			<a class="nav-link active" aria-current="page" href="app_login">
 				<i class="bi bi-person"></i>
 			</a>
 		</li>
+		{% endif %}
 		<li class="nav-item">
 			<a class="nav-link" href="{{ path('app_orang_outan_index') }}"><img src="build\images\visage1.090dd722.png" class="pic-navbar" alt="tête d'ourangoutan">
 			</a>
@@ -33,9 +46,18 @@
 				<li class="nav-item">
 					<a class="nav-link active" aria-current="page" href="{{ path('app_home') }}">Accueil</a>
 				</li>
+				{% if app.user %}
 				<li class="nav-item">
-					<a class="nav-link active" aria-current="page" href="#">Se connecter</a>
+					<a class="nav-link active" href="{{ path('app_logout') }}">Déconnexion</a>
 				</li>
+				{% else %}
+				<li class="nav-item">
+					<a class="nav-link active" href="{{ path('app_login') }}">Se connecter</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link active" href="{{ path('app_register') }}">S'inscrire</a>
+				</li>
+				{% endif %}
 				<li class="nav-item">
 					<a class="nav-link" href="{{ path('app_orang_outan_index') }}">Tous nos ourang-outans
 						<img src="build\images\visage1.090dd722.png" class="pic-navbar"></a>

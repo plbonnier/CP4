@@ -62,7 +62,9 @@ $lineHeightText: normal;
 
 .bi-person,
 .bi-card-image,
-.bi-list {
+.bi-list,
+.bi-person-check,
+.bi-power {
     margin: 0;
     padding: 0;
     font-size: 3.125rem;
@@ -113,7 +115,7 @@ h2 {
     }
 }
 
-p {
+p, .para {
     @include myText(
         ($fontFamily),
         ($fontColorText),
@@ -260,4 +262,4 @@ p {
     border-width: 1px;
 }
 
-// ----------------------------card--------------------
+// ----------------------------register--------------------

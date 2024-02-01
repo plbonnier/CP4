@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\OrangOutanRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -28,7 +30,6 @@ class OrangOutan
 
     #[ORM\Column(length: 255)]
     private ?string $slug = null;
-
 
     public function getId(): ?int
     {
@@ -92,4 +93,8 @@ class OrangOutan
         $this->slug = $slug;
         return $this;
     }
+
+    /**
+     * @return Collection<int, User>
+     */
 }
