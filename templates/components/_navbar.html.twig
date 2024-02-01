@@ -61,43 +61,43 @@
 			<button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
 		</div>
 		<div class="offcanvas-body">
-			<ul class="d-flex flex-column align-items-center justify-content-around p-0 h-25">
-				<li class="nav-item mt-3">
+			<ul class="d-flex flex-column align-items-center justify-content-evenly p-0 h-75">
+				<li class="nav-item">
 					<a class="nav-link active" aria-current="page" href="{{ path('app_home') }}">Accueil</a>
 				</li>
 				{% if app.user %}
-					<li class="nav-item mt-3">
+					<li class="nav-item">
 						<a class="nav-link active" href="{{ path('app_logout') }}">Déconnexion</a>
 					</li>
-					<li class="nav-item mt-3">
+					<li class="nav-item">
 						<a class="nav-link active" href="{{ path('app_profile') }}">Mon profil</a>
 					</li>
 				{% else %}
-					<li class="nav-item mt-3">
+					<li class="nav-item">
 						<a class="nav-link active" href="{{ path('app_login') }}">Se connecter</a>
 					</li>
-					<li class="nav-item mt-3">
+					<li class="nav-item">
 						<a class="nav-link active" href="{{ path('app_register') }}">S'inscrire</a>
 					</li>
 				{% endif %}
-				<li class="nav-item mt-3">
+				<li class="nav-item">
 					<a class="nav-link" href="{{ path('app_orang_outan_index') }}">Tous nos ourang-outans
 						<img src="build\images\visage1.090dd722.png" class="pic-navbar"></a>
 				</li>
 				{% if app.user %}
-					<li class="nav-item mt-3">
+					<li class="nav-item">
 						<a class="nav-link" href="{{ path('app_adopt_new') }}">
 							Parrainer un de nos pensionnaires
 						</a>
 					</li>
 				{% endif %}
 				{% if is_granted('ROLE_ADMIN') %}
-				<li class="nav-item mt-3">
+				<li class="nav-item">
 						<a class="nav-link" href="{{ path('app_orang_outan_new') }}">
 							Ajouter un pensionnaire
 						</a>
 					</li>
-				<li class="nav-item mt-3">
+				<li class="nav-item">
 						<a class="nav-link" href="{{ path('admin') }}">
 							Accèder à mon tableau de bord
 						</a>
