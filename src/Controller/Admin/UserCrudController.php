@@ -22,6 +22,10 @@ class UserCrudController extends AbstractCrudController
             IdField::new('id'),
             TextField::new('title'),
             TextEditorField::new('description'),
+            ImageField::new('picture')
+            ->setBasePath('uploads/images/pictures/')
+            ->setUploadDir('public/uploads/images/pictures/')
+            ->setLabel('Photo'),
         ];
     }
     */
