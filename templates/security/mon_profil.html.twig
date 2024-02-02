@@ -19,29 +19,29 @@
 				{{ app.user.zipcode}}
 				{{ app.user.city }}{{ app.user.country }}
 			</p>
-			<p>
 
-				<h2 class="text-center">Mes parrainnages</h2>
-				<div class="d-flex justify-content-evenly gap-5 flex-wrap mx-auto">
-					{% for adopt in user.adopts %}
-						<div class="card w-25">
-							<img src="{{ vich_uploader_asset(adopt.orangoutan, 'pictureFile') }}" class="card-img-top object-fit-cover" alt="{{ adopt.orangoutan.name }}">
-							<div class="card-body">
-								<p class="card-text">{{ adopt.orangoutan.name }}</p>
-								<p class="card-text">Montant de votre parrainage :
-									{{ adopt.money }}
-									€</p>
-								<p class="card-text">Date de votre parrainage :
-									{{ adopt.date|date('d-m-Y') }}</p>
-								<p class="card-text">Son histoire :
-									{{ adopt.orangoutan.story }}</p>
-							</div>
+			<h2 class="text-center">Mes parrainnages</h2>
+			<div class="d-flex justify-content-evenly gap-5 flex-wrap mx-auto">
+				{% for adopt in user.adopts %}
+					<div class="card w-25">
+						<img src="{{ vich_uploader_asset(adopt.orangoutan, 'pictureFile') }}" class="card-img-top object-fit-cover" alt="{{ adopt.orangoutan.name }}">
+						<div class="card-body">
+							<p class="card-text">{{ adopt.orangoutan.name }}</p>
+							<p class="card-text">Montant de votre parrainage :
+								{{ adopt.money }}
+								€</p>
+							<p class="card-text">Date de votre parrainage :
+								{{ adopt.date|date('d-m-Y') }}</p>
+							<p class="card-text">Son histoire :
+								{{ adopt.orangoutan.story }}</p>
 						</div>
-					{% endfor %}
-				</div>
-				<a href="{{ path('app_profile_edit') }}" class="btn button-cta mt-4 mb-2" tabindex="-1" role="button" aria-disabled="true">Modifier mes information</a>
+					</div>
+				{% endfor %}
+			</div>
+			<a href="{{ path('app_profile_edit') }}" class="btn button-cta mt-4 mb-2" tabindex="-1" role="button" aria-disabled="true">Modifier mes information</a>
+			<div class="pagina">
 				<div class="d-flex button-cta mt-3">{{ include('security/_delete.html.twig') }}</div>
-			</p>
+			</div>
 		</div>
 	</div>
 {% endblock %}

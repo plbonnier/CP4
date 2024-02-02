@@ -1,6 +1,7 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Modifier un pensionnaire{% endblock %}
+{% block title %}Modifier un pensionnaire
+{% endblock %}
 
 {% block body %}
 	<div class="d-flex justify-content-evenly align-items-center">
@@ -8,11 +9,12 @@
 		<img src="/build/images/REFUGE DES OURANG-OUTANS DE BORNEO.2dd4df03.png" alt="logo du refuge des orang-outans" class="petit-logo my-4">
 	</div>
 
-    {{ include('orang_outan/_form.html.twig', {'button_label': 'Update'}) }}
+	{{ include('orang_outan/_form.html.twig', {'button_label': 'Modifier'}) }}
 
 	<div class="d-flex justify-content-center mt-3">
 		<a type="button" class="button-cta2 mt-3" href="{{ path('app_orang_outan_index') }}">retour à la liste de nos pensionnaires</a>
 	</div>
-
-    {{ include('orang_outan/_delete_form.html.twig') }}
+	<div class="d-flex justify-content-center mt-3 pagina ">
+		{{ include('orang_outan/_delete_form.html.twig') }}
+	</div>
 {% endblock %}
