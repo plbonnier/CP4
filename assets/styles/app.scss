@@ -162,8 +162,8 @@ p, .para {
 }
 
 .petit-logo {
-    width: 5rem;
-    height: 4.8153rem;
+    width: 7rem;
+    height: 6.7414rem;
     border-radius: 10.59375rem;
 }
 // ------------button---------
@@ -297,6 +297,10 @@ p, .para {
     border-width: 1px;
 }
 
+body div div .pagina {
+        padding-bottom: 5rem;
+}
+
 // ----------------------------form--------------------
 label.required:before {
     content: "*";
@@ -305,4 +309,8 @@ label.required:before {
 //------------------profil-----------------
 .profil{
     width: 20%;
+}
+
+.pagi{
+    padding-bottom: 5rem;
 }

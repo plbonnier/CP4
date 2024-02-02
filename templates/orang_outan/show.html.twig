@@ -11,21 +11,23 @@
 	</div>
 	<div class="d-flex flex-column align-items-center">
 		<img src="{{ vich_uploader_asset(orang_outan) }}" class="img-fluid rounded-start object-fit-cover w-75" alt="photo de {{ orang_outan.name }}"/>
-		<h2 class="my-3">Son histoire</h2>
-		<p class="my-3">Date de naissance (réelle ou estimée):
+		<h2 class="text-center my-3">Son histoire</h2>
+		<p class="text-center my-3">Date de naissance (réelle ou estimée):
 			{{ orang_outan.birth|date('d-m-Y') }}</p>
 		<p class="text-center w-75 my-3">{{ orang_outan.story }}</p>
 	</div>
-	<div class="d-flex justify-content-evenly">
+	<div class="d-flex justify-content-evenly pagina text-center">
 		<a type="button" href="{{ path('app_orang_outan_index') }}" class="mx-auto button-cta">retour à la liste des pensionnaires</a>
 
 		<a type="button" href="{{ path('app_adopt_new') }}" class="mx-auto button-cta">Parrainer un orang-outan</a>
 
 		{% if is_granted('ROLE_ADMIN') %}
-			<a type="button" href="{{ path('app_orang_outan_edit', {'id': orang_outan.id}) }}" class="mx-auto button-crud">edit</a>
+			<a type="button" href="{{ path('app_orang_outan_edit', {'id': orang_outan.id}) }}" class="mx-auto button-crud">Modifier</a>
 		{% endif %}
 	</div>
 	{% if is_granted('ROLE_ADMIN') %}
-		{{ include('orang_outan/_delete_form.html.twig') }}
+		<div class="d-flex justify-content-center mt-3 pagina ">
+			{{ include('orang_outan/_delete_form.html.twig') }}
+		</div>
 	{% endif %}
 {% endblock %}
